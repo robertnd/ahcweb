@@ -1,88 +1,71 @@
-  <!-- Partners Section -->
-  <div class="search-heading-section">
-    <div class="section-container">
-      <h5>Search Schedule</h5>
-    </div>
+<!-- Partners Section -->
+<div class="search-heading-section">
+  <div class="section-container">
+    <h5>Search Schedule</h5>
   </div>
-  <div class="search-box-section">
-    <div class="section-container">
-      <div class="two-column">
-        <div class="col-left">
-          <input class="primary-input" type="text" />
-        </div>
-        <div class="col-right">
-          <button class="primary-button with-icon">
-            Search
-            <img src="assets/arrow-right-light.svg" alt="" />
-          </button>
-        </div>
+</div>
+<div class="search-box-section">
+  <div class="section-container">
+    <div class="two-column">
+      <div class="col-left">
+        <input
+          #codeRefCtrl="ngModel"
+          [(ngModel)]="codeRef"
+          class="primary-input"
+          type="text"
+        />
+      </div>
+      <div class="col-right">
+        <button class="primary-button with-icon" (click)="submit()">
+          Search
+          <img src="assets/arrow-right-light.svg" alt="" />
+        </button>
       </div>
     </div>
   </div>
-  <!--Schedule Results-->
-  <div class="content-dynamic-section">
-    <div class="section-container">
-      <div class="card-container">
-        <div class="card-header">
-          <div class="four-column">
-            <div class="col4-1">
-              <p class="card-row-heading">Code</p>
-            </div>
-            <div class="col4-2">
-              <p class="card-row-heading">Description</p>
-            </div>
-            <div class="col4-3">
-              <p class="card-row-heading">Chapter</p>
-            </div>
-            <div class="col4-4">
-              <p class="card-row-heading">Guidance</p>
-            </div>
+</div>
+<!--Schedule Results-->
+<!-- Error Box-->
+<!-- <div>
+    <p>{{ errorMessage }}</p>
+  </div> -->
+<div class="content-dynamic-section">
+  <div class="section-container">
+    <div class="card-container">
+      <div class="card-header">
+        <div class="four-column">
+          <div class="col4-1">
+            <p class="card-row-heading">Code</p>
+          </div>
+          <div class="col4-2">
+            <p class="card-row-heading">Chapter</p>
+          </div>
+          <div class="col4-3">
+            <p class="card-row-heading">SubChapter</p>
+          </div>
+          <div class="col4-4">
+            <p class="card-row-heading">Description</p>
           </div>
         </div>
+      </div>
+      <div *ngFor="let c of procCodes | keyvalue">
         <div class="card">
           <div class="four-column">
             <div class="col4-1">
-              <label class="primary-label">QW324234</label>
+              <label class="primary-label">{{ c.value.code }}</label>
             </div>
             <div class="col4-2">
-              <p class="secondary-text-dark">
-                We offer front end and back end libraries in some of the most
-                widely used technologies, old and new.
-              </p>
+              <p class="card-row-item">{{ c.value.chapter }}</p>
             </div>
             <div class="col4-3">
-              <label class="primary-label">33.21</label>
+              <label class="card-row-item">{{ c.value.sub_chapter }}</label>
             </div>
             <div class="col4-4">
-              <p class="secondary-text-dark">
-                We offer front end and back end libraries in some of the most
-                widely used technologies, old and new.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="four-column">
-            <div class="col4-1">
-              <label class="primary-label">QW324234</label>
-            </div>
-            <div class="col4-2">
-              <p class="secondary-text-dark">
-                We offer front end and back end libraries in some of the most
-                widely used technologies, old and new.
-              </p>
-            </div>
-            <div class="col4-3">
-              <label class="primary-label">33.21</label>
-            </div>
-            <div class="col4-4">
-              <p class="secondary-text-dark">
-                We offer front end and back end libraries in some of the most
-                widely used technologies, old and new.
-              </p>
+              <p class="card-row-item">{{ c.value.descr }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

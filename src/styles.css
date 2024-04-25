@@ -23,7 +23,7 @@
   --secondary-text-size: 14px;
   --secondary-text-height: 18px;
   --button-size: 16px;
-  --label-size-sm: 12px;
+  --label-size-sm: 14px;
   --label-size-md: 16px;
 
   /* SPACING VARIABLES */
@@ -41,7 +41,7 @@
   --bg-white: #fff;
   --bg-light: #f7f9fc;
   --bg-mid-light: #ecf2fd;
-  --card-hover: #e4e7ea;
+  --card-hover: #f3eec9;
 
   --standard-border-radius: 10px;
   --standard-box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.15);
@@ -204,7 +204,7 @@ p {
 }
 
 .four-column > .col4-2 {
-  width: 45%;
+  width: 25%;
   box-sizing: border-box;
   padding: var(--spacing-sm);
   display: flex;
@@ -214,7 +214,7 @@ p {
 }
 
 .four-column > .col4-3 {
-  width: 5%;
+  width: 25%;
   box-sizing: border-box;
   padding: var(--spacing-sm);
   display: flex;
@@ -296,6 +296,12 @@ p {
 .card-row-heading {
   line-height: var(--p-height);
   font-weight: 500;
+  margin: 0;
+}
+
+.card-row-item {
+  line-height: var(--p-height);
+  font-weight: 300;
   margin: 0;
 }
 
