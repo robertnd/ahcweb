@@ -1,0 +1,72 @@
+<!-- <app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</main> -->
+
+<!-- Navbar -->
+<nav class="navbar">
+  <img src="assets/ahcMain2.svg" alt="ahc" width="150px" height="100px" />
+  <ul class="menu">
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Solutions</a></li>
+    <li><a href="#">Support</a></li>
+    <li><a href="#">Contacts</a></li>
+  </ul>
+  <div class="hamburger-button">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <button class="primary-button">Sign In</button>
+</nav>
+<main>
+  <!-- GRADIENT BACKGROUND -->
+  <canvas id="gradient-canvas"></canvas>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="section-container">
+      <div class="col-left">
+        <h2>AHC Schedule</h2>
+      </div>
+      <p class="alt-p-text">
+        The AHC Schedules contains standard codes for procedures for the Kenya's
+        private healthcare sector
+      </p>
+    </div>
+  </div>
+  <!-- ROUTER -->
+  <router-outlet></router-outlet>
+  <footer class="footer">
+    <div class="section-container">
+      <div class="col">
+        <img src="assets/ahcMain2.svg" alt="" id="footer-logo" />
+      </div>
+      <div class="col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="#">Health Codes</a></li>
+          <li><a href="#">Directory</a></li>
+          <li><a href="#">Providers</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Use Cases</h3>
+        <ul>
+          <li><a href="#">Registration</a></li>
+          <li><a href="#">SaaS</a></li>
+          <li><a href="#">Marketplace</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Support Center</a></li>
+          <li><a href="#">Guides</a></li>
+          <li><a href="#">Privacy & Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</main>
