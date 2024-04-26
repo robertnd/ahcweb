@@ -10,7 +10,7 @@
       <div class="col-left">
         <input
           #codeRefCtrl="ngModel"
-          [(ngModel)]="codeRef"
+          [(ngModel)]="tags"
           class="primary-input"
           type="text"
         />
@@ -26,9 +26,9 @@
 </div>
 <!--Schedule Results-->
 <!-- Error Box-->
-<!-- <div>
-    <p>{{ errorMessage }}</p>
-  </div> -->
+<div>
+    <p class="error-text">{{ errorMessage }}</p>
+  </div>
 <div class="content-dynamic-section">
   <div class="section-container">
     <div class="card-container">

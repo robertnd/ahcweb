@@ -5,6 +5,7 @@
   --text-dark: #000;
   --text-light: #fff;
   --text-grey: #adbdcc;
+  --text-red: #e81515;
   /* --body-font: "Roboto", sans-serif; */
   --body-font: "Overpass", sans-serif;
   --heading-font: "Overpass", sans-serif;
@@ -22,6 +23,8 @@
   --p-height: 26px;
   --secondary-text-size: 14px;
   --secondary-text-height: 18px;
+  --error-text-size: 16px;
+  --error-text-height: 18px;
   --button-size: 16px;
   --label-size-sm: 14px;
   --label-size-md: 16px;
@@ -303,6 +306,13 @@ p {
   line-height: var(--p-height);
   font-weight: 300;
   margin: 0;
+}
+
+.error-text {
+  font-size: var(--error-text-size);
+  line-height: var(--error-text-height);
+  color: var(--text-red);
+  letter-spacing: 0.25px;
 }
 
 .secondary-text {

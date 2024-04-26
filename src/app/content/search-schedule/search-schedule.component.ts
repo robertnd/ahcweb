@@ -12,54 +12,70 @@ import { DiagnosticCode } from 'src/app/shared/diagnostic-code.class';
 export class SearchScheduleComponent implements AfterViewInit, OnInit {
 
   // parameters
-  codeRef: string = '';
+  tags: string = '';
   errorMessage: string = '';
   procCode: ProcedureCode = new ProcedureCode();
-  procCodes: Map<number, ProcedureCode> = new Map<number, ProcedureCode>()
-  
-  constructor(
-    private searchService: SearchService,
-    private router: Router) {
-  }
+  codes: ProcedureCode[] = new Array();
+    procCodes: Map<string, ProcedureCode> = new Map<string, ProcedureCode>()
 
-  ngOnInit(): void {}
+constructor(
+  private searchService: SearchService,
+  private router: Router) {
+}
 
-  ngAfterViewInit() {}
+ngOnInit(): void {}
 
-  /*
-  {
-      "chapter": "Pathology Diagnostics",
-      "code": "1669T",
-      "descr": "Epstein-Barr virus (EBV) PCR",
-      "id": 2834,
-      "sub_chapter": "Histopathology"
-  } 
+ngAfterViewInit() { }
+
+/*
+{
+    "chapter": "Pathology Diagnostics",
+    "code": "1669T",
+    "descr": "Epstein-Barr virus (EBV) PCR",
+    "id": 2834,
+    "sub_chapter": "Histopathology"
+} 
 */
+showSearchResults() {
+  return this.procCodes.size > 0
+}
 
+showError() {
+  if (this.errorMessage) return 1
+  else return 0
+}
 
+submit() {
 
+  // reset state before new search
+  this.codes = []
+  this.errorMessage = ''
+  this.procCodes = new Map<string, ProcedureCode>()
 
-
-  submit() {
-    let request = { "codeRef": this.codeRef }
-    this.searchService.getCodeDetails(request).subscribe({
-      next: data => {
-        
-        this.procCode = { ...data}
-        this.procCodes.set(this.procCode.id, this.procCode);
-      },
-      error: err => {
-        if (err.error) {
-          this.errorMessage = err.error.message
-        } else if (err.message) {
-          this.errorMessage = err.message
-        } else {
-          this.errorMessage = JSON.stringify(err)
+  if (!this.tags) {
+    this.errorMessage = 'Type something in the Search box ....'
+    return
+  } 
+  let request = { "tags": this.tags }
+  this.searchService.search(request).subscribe({
+    next: data => {
+      this.codes = [...data]
+      if (this.codes.length > 0) {
+        for (var vcode of this.codes) {
+          this.procCodes.set(vcode.code, vcode)
         }
+      } else this.errorMessage = `No records containing [ ${this.tags} ] found`
+    },
+    error: err => {
+      if (err.error) {
+        this.errorMessage = err.error.message
+      } else if (err.message) {
+        this.errorMessage = err.message
+      } else {
+        this.errorMessage = JSON.stringify(err)
       }
-    });
-  }
-
-  
+    }
+  });
+}  
 
 }
